@@ -1,0 +1,169 @@
+.chamC {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainC {
+  width: 100%;
+  height: 100%;
+  clip-path: circle(50% at 50% 50%);
+  flex-wrap: wrap;
+}
+.cut1 {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: absolute;
+  border-radius: 50%;
+}
+.cut2 {
+  position: absolute;
+  background-color: green;
+  width: 100px;
+  height: 100px;
+  left: 50%;
+  border-radius: 0 30px 30px 0;
+}
+.cut3 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  top: 20px;
+  right: 65px;
+}
+.cut_1 {
+}
+.chamH {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainH {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    1% 1%,
+    33% 1%,
+    36% 37%,
+    68% 38%,
+    70% 0%,
+    97% 1%,
+    100% 99%,
+    73% 100%,
+    70% 73%,
+    38% 66%,
+    37% 100%,
+    0% 100%
+  );
+}
+
+.chamA {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainA {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    49% 0%,
+    1% 100%,
+    21% 100%,
+    39% 76%,
+    61% 76%,
+    77% 100%,
+    98% 100%
+  );
+}
+.cut5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background-color: green;
+  clip-path: polygon(49% 35%, 38% 60%, 49% 54%, 56% 60%);
+}
+.chamM {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mainM {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(
+    0% 100%,
+    14% 1%,
+    28% 1%,
+    42% 49%,
+    54% 48%,
+    73% 0%,
+    84% 0%,
+    100% 100%,
+    82% 100%,
+    76% 42%,
+    61% 100%,
+    40% 99%,
+    22% 48%,
+    15% 100%
+  );
+}
+.cut7 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  top: 120px;
+  left: 65px;
+}
+.cut8 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  top: 120px;
+  right: 65px;
+}
+.inC {
+  width: 100%;
+  height: 20px;
+  display: flex;
+}
+.inC_ {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+}
+.goShop {
+  position: absolute;
+  bottom: 100px;
+  width: 200px;
+  height: 100px;
+  color: white;
+  background-color: green;
+  border: 3px solid white;
+  border-radius: 12px;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.goShop:hover {
+  background-color: white;
+  color: green;
+}

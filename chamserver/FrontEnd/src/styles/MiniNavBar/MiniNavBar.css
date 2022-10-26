@@ -1,0 +1,24 @@
+.miniMenu {
+  text-decoration: none;
+  color: green;
+  font-weight: bold;
+  border-radius: 12px;
+}
+.miniMenu:hover {
+  background-color: rgb(71, 211, 71);
+  color: white;
+}
+.picked {
+  background-color: green;
+  color: white;
+}
+.miniNav_menu {
+  width: 100px;
+  height: 50px;
+  border: 1px solid green;
+  border-radius: 12px;
+  box-shadow: 2px 2px 3px green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
