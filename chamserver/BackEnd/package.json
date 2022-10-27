@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon controller/app",
+    "start": "concurrently \"npm node controller/app.js\" \"npm run dev:client\"",
+    "test": "nodemon controller/app.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "node controller/app",
+    "dev:server": "nodemon controller/app.js",
     "dev:client": "cd ../FrontEnd && npm start"
   },
   "keywords": [],
