@@ -3,6 +3,7 @@ const app = express();
 const session = require("express-session");
 const { sequelize } = require("../models");
 const cors = require("cors");
+const path = require("path");
 // DB연동
 sequelize
   .sync({ force: false })
@@ -33,6 +34,12 @@ app.use(
     },
   })
 );
+
+// react static 설정
+app.use(express.static(path.join(__dirname, "../../FrontEnd/build")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../FrontEnd/build", "index.html"));
+});
 
 //json형태의 파일을 읽을수 있게
 app.use(express.json());
