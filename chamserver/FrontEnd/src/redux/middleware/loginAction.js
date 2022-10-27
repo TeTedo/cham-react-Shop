@@ -65,9 +65,9 @@ const loginCheck = () => {
         });
       }
       // 로그인 검사 실패시
-      // else {
-      //   dispatch({ type: "LOGOUT" });
-      // }
+      else {
+        dispatch({ type: "LOGOUT" });
+      }
     } else {
       dispatch({ type: "LOGOUT" });
     }
