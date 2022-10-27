@@ -1,7 +1,7 @@
 const dot = require("dotenv").config();
 const config = {
   dev: {
-    username: "root",
+    username: "test",
     password: process.env.DB_PASSWORD,
     database: "cham",
     host: "127.0.0.1",
