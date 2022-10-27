@@ -16,24 +16,9 @@ sequelize
 
 //리액트랑 백엔드 연동하기 위해cors 설정
 const options = {
-  origin: "43.201.1.125",
+  origin: "3.38.209.74",
 };
 app.use(cors(options));
-
-// express-session연결
-app.use(
-  session({
-    secret: process.env.SESSION_KEY,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      httpOnly: true,
-      sameSite: "none",
-      maxAge: 5300000,
-      secure: true,
-    },
-  })
-);
 
 // react static 설정
 app.use(express.static(path.join(__dirname, "../../FrontEnd/build")));
