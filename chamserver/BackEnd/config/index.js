@@ -4,7 +4,7 @@ const config = {
     username: "root",
     password: process.env.DB_PASSWORD,
     database: "cham",
-    host: "ec2-43-201-1-125.ap-northeast-2.compute.amazonaws.com",
+    host: "ec2-54-180-139-26.ap-northeast-2.compute.amazonaws.com",
     dialect: "mysql",
     timezone: "+09:00",
     dialectOptions: {
