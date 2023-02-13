@@ -15,7 +15,7 @@ router.post("/shop/uploads", imgUpload.single("file"), async (req, res) => {
   const { user_id, name, introduction, category, price } = JSON.parse(
     req.body.data
   );
-  ShopList.create({
+  await ShopList.create({
     user_id,
     name,
     introduction,
