@@ -16,7 +16,7 @@ sequelize
 
 //리액트랑 백엔드 연동하기 위해cors 설정
 const options = {
-  origin: ["http://localhost:3000", "http://localhost"],
+  origin: ["http://127.0.0.1:3000", "http://127.0.0.1"],
 };
 app.use(cors(options));
 
