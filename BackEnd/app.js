@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const session = require("express-session");
-const { sequelize } = require("../models");
+const { sequelize } = require("./models");
 const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
@@ -35,15 +35,15 @@ app.use(
   })
 );
 //라우터 불러오기, 사용
-const singUp = require("../routers/signUp");
-const login = require("../routers/login");
-const shop = require("../routers/shop");
-const modifyProfile = require("../routers/modifyProfile");
-const user = require("../routers/user");
-const error = require("../routers/error");
+const singUp = require("./routers/signUp");
+const login = require("./routers/login");
+const shop = require("./routers/shop");
+const modifyProfile = require("./routers/modifyProfile");
+const user = require("./routers/user");
+const error = require("./routers/error");
 app.use(singUp, login, shop, modifyProfile, user, error);
 
-app.use("/public", express.static(path.join(__dirname, "..")));
+app.use(express.static(__dirname));
 
 app.listen(8000, () => {
   console.log("server start");
