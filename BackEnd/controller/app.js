@@ -19,6 +19,7 @@ const options = {
   origin: [
     "http://127.0.0.1:3000",
     "http://127.0.0.1",
+    "http://localhost:3000",
     "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com",
     "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:3000",
   ],

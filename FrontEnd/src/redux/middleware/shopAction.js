@@ -4,46 +4,62 @@ import { loginAction } from "./loginAction";
 const uploadGoodsToServer = (props) => {
   return async (dispatch, getState) => {
     const { formData, config } = props;
-    await axios.post(`${process.env.URL}/shop/uploads`, formData, config);
+    await axios.post(
+      `${process.env.REACT_APP_URL}/shop/uploads`,
+      formData,
+      config
+    );
   };
 };
 const uploadSlideToServer = (props) => {
   return async (dispatch, getState) => {
     const { formData, config } = props;
-    const slideData = await axios.post(`${process.env.URL}/`, formData, config);
+    const slideData = await axios.post(
+      `${process.env.REACT_APP_URL}/`,
+      formData,
+      config
+    );
     dispatch({ type: "ADDSLIDE", payload: slideData.data });
   };
 };
 const getShopData = () => {
   return async (dispatch, getState) => {
-    const goodsData = await axios.get(`${process.env.URL}/shop/data`);
+    const goodsData = await axios.get(`${process.env.REACT_APP_URL}/shop/data`);
     dispatch({ type: "SHOPDATA", payload: goodsData.data });
   };
 };
 const getPermissionData = () => {
   return async (dispatch, getState) => {
-    const goodsData = await axios.get(`${process.env.URL}/shop/permission`);
+    const goodsData = await axios.get(
+      `${process.env.REACT_APP_URL}/shop/permission`
+    );
     dispatch({ type: "PERMISSION", payload: goodsData.data });
   };
 };
 const getSlideData = () => {
   return async (dispatch, getState) => {
-    const slideData = await axios.get(`${process.env.URL}/shop/slide`);
+    console.log(process.env.REACT_APP_URL);
+    const slideData = await axios.get(
+      `${process.env.REACT_APP_URL}/shop/slide`
+    );
     dispatch({ type: "GETSLIDE", payload: slideData.data });
   };
 };
 const deleteSlideData = (props) => {
   return async (dispatch, getState) => {
-    const slideData = await axios.post(`${process.env.URL}/shop/deleteSlide`, {
-      id: props,
-    });
+    const slideData = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/deleteSlide`,
+      {
+        id: props,
+      }
+    );
     dispatch({ type: "GETSLIDE", payload: slideData.data });
   };
 };
 const getPermissionCheck = (user_id) => {
   return async (dispatch, getState) => {
     const goodsData = await axios.post(
-      `${process.env.URL}/shop/permissionCheck`,
+      `${process.env.REACT_APP_URL}/shop/permissionCheck`,
       {
         user_id,
       }
@@ -54,33 +70,40 @@ const getPermissionCheck = (user_id) => {
 
 const permissionAction = (action, id) => {
   return async (dispatch, getState) => {
-    const goodsData = await axios.post(`${process.env.URL}/shop/permission`, {
-      type: action,
-      id,
-    });
+    const goodsData = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/permission`,
+      {
+        type: action,
+        id,
+      }
+    );
     dispatch({ type: "PERMISSION", payload: goodsData.data });
   };
 };
 
 const addToCart = (data) => {
   return async (dispatch, getState) => {
-    await axios.post(`${process.env.URL}/shop/cart`, { ...data });
+    await axios.post(`${process.env.REACT_APP_URL}/shop/cart`, { ...data });
     alert("장바구니에 추가되었습니다.");
   };
 };
 const getCartData = (user_id) => {
   return async (dispatch, getState) => {
-    const cartData = await axios.post(`${process.env.URL}/shop/cartData`, {
-      user_id,
-    });
+    const cartData = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/cartData`,
+      {
+        user_id,
+      }
+    );
     dispatch({ type: "CART", payload: { ...cartData.data } });
   };
 };
 const buyingData = (data) => {
   return async (dispatch, getState) => {
-    const cartData = await axios.post(`${process.env.URL}/shop/buyingData`, [
-      ...data,
-    ]);
+    const cartData = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/buyingData`,
+      [...data]
+    );
     alert("구매가 완료되었습니다.");
     dispatch({ type: "CART", payload: { ...cartData.data } });
     dispatch(loginAction.loginCheck());
@@ -88,15 +111,18 @@ const buyingData = (data) => {
 };
 const boughtData = (user_id) => {
   return async (dispatch, getState) => {
-    const boughtData = await axios.post(`${process.env.URL}/shop/boughtData`, {
-      user_id,
-    });
+    const boughtData = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/boughtData`,
+      {
+        user_id,
+      }
+    );
     dispatch({ type: "SHOPBOUGHT", payload: { ...boughtData.data } });
   };
 };
 const writeReview = (data) => {
   return async (dispatch, getState) => {
-    await axios.post(`${process.env.URL}/shop/writeReview`, {
+    await axios.post(`${process.env.REACT_APP_URL}/shop/writeReview`, {
       ...data,
     });
     alert("리뷰가 등록되었습니다.");
@@ -105,7 +131,7 @@ const writeReview = (data) => {
 const getProductionData = (data) => {
   return async (dispatch, getState) => {
     const productionData = await axios.post(
-      `${process.env.URL}/shop/getProductionData`,
+      `${process.env.REACT_APP_URL}/shop/getProductionData`,
       {
         ...data,
       }
@@ -115,13 +141,15 @@ const getProductionData = (data) => {
 };
 const getSellerData = () => {
   return async (dispatch, getState) => {
-    const sellerData = await axios.get(`${process.env.URL}/shop/getSellerData`);
+    const sellerData = await axios.get(
+      `${process.env.REACT_APP_URL}/shop/getSellerData`
+    );
     dispatch({ type: "FINDAPPLYSELLER", payload: [...sellerData.data] });
   };
 };
 const resultSellerData = ({ user_id, result }) => {
   return async (dispatch, getState) => {
-    await axios.post(`${process.env.URL}/shop/resultSellerData`, {
+    await axios.post(`${process.env.REACT_APP_URL}/shop/resultSellerData`, {
       user_id,
       result,
     });
@@ -130,7 +158,7 @@ const resultSellerData = ({ user_id, result }) => {
 const getTotalSellData = (user_id) => {
   return async (dispatch, getState) => {
     const totalSell = await axios.post(
-      `${process.env.URL}/shop/getTotalSellData`,
+      `${process.env.REACT_APP_URL}/shop/getTotalSellData`,
       {
         user_id,
       }
@@ -140,9 +168,12 @@ const getTotalSellData = (user_id) => {
 };
 const manageProduct = (id) => {
   return async (dispatch, getState) => {
-    const shop = await axios.post(`${process.env.URL}/shop/manageProduct`, {
-      id,
-    });
+    const shop = await axios.post(
+      `${process.env.REACT_APP_URL}/shop/manageProduct`,
+      {
+        id,
+      }
+    );
     dispatch({ type: "SHOPDATA", payload: { ...shop.data } });
   };
 };

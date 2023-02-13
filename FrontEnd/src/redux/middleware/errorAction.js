@@ -1,7 +1,7 @@
 import axios from "axios";
 const reportError = (data) => {
   return async (dispatch, getState) => {
-    const error = await axios.post(`${process.env.URL}/error`, {
+    const error = await axios.post(`${process.env.REACT_APP_URL}/error`, {
       ...data,
     });
     if (error.data === true) {
