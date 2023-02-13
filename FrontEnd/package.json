@@ -24,7 +24,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "production": "docker run -d --rm -p 80:80 tetedo/cham:front"
+    "production": "docker run -d --rm -p 80:80 tetedo/cham:front",
+    "docker-build": "docker build -t tetedo/cham:front --env-file=.env.production .",
+    "docker-push" : "docker push tetedo/cham:front"
   },
   "eslintConfig": {
     "extends": [

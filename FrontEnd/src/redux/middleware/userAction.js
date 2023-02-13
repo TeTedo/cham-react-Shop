@@ -2,17 +2,16 @@ import axios from "axios";
 
 const getAllUserData = (user_id) => {
   return async (dispatch, getState) => {
-    const allUser = await axios.post(
-      "http://127.0.0.1:8000/user/getAllUserData",
-      { user_id }
-    );
+    const allUser = await axios.post(`${process.env.URL}/user/getAllUserData`, {
+      user_id,
+    });
 
     dispatch({ type: "ALL USER DATA", payload: [...allUser.data] });
   };
 };
 const changeUserType = (data) => {
   return async (dispatch, getState) => {
-    await axios.post("http://127.0.0.1:8000/user/changeUserType", {
+    await axios.post(`${process.env.URL}/user/changeUserType`, {
       ...data,
     });
     alert("변경되었습니다");

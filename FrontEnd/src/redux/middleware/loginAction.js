@@ -12,7 +12,7 @@ const signup = ({
   return async (dispatch, getState) => {
     const data = await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/signUp",
+      url: `${process.env.URL}/signUp`,
       data: {
         user_id,
 
@@ -31,7 +31,7 @@ const login = ({ user_id, user_pw }) => {
   return async (dispatch, getState) => {
     const userData = await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/login",
+      url: `${process.env.URL}/login`,
       data: { user_id, user_pw },
     });
     if (userData.data.user_id) {
@@ -51,7 +51,7 @@ const loginCheck = () => {
     if (window.localStorage.getItem("login") === "true") {
       const userData = await axios({
         method: "post",
-        url: "http://127.0.0.1:8000/loginCheck",
+        url: `${process.env.URL}/loginCheck`,
         data: {
           access_token: getCookie("access"),
           refresh_token: getCookie("refresh"),
@@ -78,13 +78,13 @@ const modifyInfo = (data) => {
     const { formData, config, user_id, user_pw } = data;
     const userData = await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/login",
+      url: `${process.env.URL}/login`,
       data: { user_id, user_pw },
     });
 
     if (userData.data.user_id) {
       const modify = await axios.post(
-        "http://127.0.0.1:8000/profile/modify",
+        `${process.env.URL}/profile/modify`,
         formData,
         config
       );
@@ -104,15 +104,14 @@ const applySeller = (data) => {
     const { user_id, user_pw } = data;
     const userData = await axios({
       method: "post",
-      url: "http://127.0.0.1:8000/login",
+      url: `${process.env.URL}/login`,
       data: { user_id, user_pw },
     });
 
     if (userData.data.user_id) {
-      const apply = await axios.post(
-        "http://127.0.0.1:8000/profile/applySeller",
-        { user_id }
-      );
+      const apply = await axios.post(`${process.env.URL}/profile/applySeller`, {
+        user_id,
+      });
       if (apply.data) {
         alert("판매자 신청 성공");
       } else {
