@@ -3,6 +3,7 @@ const router = express.Router();
 const imgUpload = require("../middleware/imgUpload");
 const { User } = require("../models");
 const path = require("path");
+require("dotenv").config();
 router.post("/profile/modify", imgUpload.single("file"), async (req, res) => {
   const { user_id, nick_name, mobile_number, address, email } = JSON.parse(
     req.body.data
@@ -14,7 +15,7 @@ router.post("/profile/modify", imgUpload.single("file"), async (req, res) => {
         mobile_number,
         address,
         email,
-        profile_img: "http://localhost:8000/public/" + req.file.filename,
+        profile_img: `${process.env.BACK_URL}/public/` + req.file.filename,
       },
       { where: { user_id } }
     );

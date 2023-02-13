@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const router = express.Router();
 const {
   ShopList,
@@ -20,7 +21,7 @@ router.post("/shop/uploads", imgUpload.single("file"), async (req, res) => {
     name,
     introduction,
     category,
-    image: "http://localhost:8000/public/" + req.file.filename,
+    image: `${process.env.BACK_URL}/public/` + req.file.filename,
     price,
     grade: 0,
     review: 0,
@@ -36,7 +37,7 @@ router.post(
   async (req, res) => {
     await ShopSlideMain.create({
       shop_id: req.body.data,
-      backgroundImg: "http://localhost:8000/public/" + req.file.filename,
+      backgroundImg: `${process.env.BACK_URL}/public/` + req.file.filename,
     });
     const slideData = await ShopSlideMain.findAll({
       include: [{ model: ShopList }],
