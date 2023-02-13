@@ -3,6 +3,7 @@ const app = express();
 const session = require("express-session");
 const { sequelize } = require("../models");
 const cors = require("cors");
+require("dotenv").config();
 // DB연동
 sequelize
   .sync({ force: false })
@@ -15,7 +16,7 @@ sequelize
 
 //리액트랑 백엔드 연동하기 위해cors 설정
 const options = {
-  origin: "http://localhost:3000",
+  origin: ["http://localhost:3000"],
 };
 app.use(cors(options));
 
