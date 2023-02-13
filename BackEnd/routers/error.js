@@ -7,9 +7,9 @@ router.post("/error", async (req, res) => {
   const octokit = new Octokit({ auth: process.env.GIT_TOKEN });
 
   await octokit
-    .request(`POST /repos/TeTedo/react_project/issues`, {
+    .request(`POST /repos/TeTedo/cham-react-Shop/issues`, {
       owner: "TeTedo",
-      repo: "react_project",
+      repo: "cham-react-Shop",
       title: title,
       body: body,
       labels: labels,
