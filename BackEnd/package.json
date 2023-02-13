@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon controller/app.js"
+    "start": "nodemon controller/app.js",
+    "production": "npx pm2 start controller/app.js"
   },
   "keywords": [],
   "author": "",
