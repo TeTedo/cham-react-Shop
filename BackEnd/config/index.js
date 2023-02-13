@@ -1,8 +1,8 @@
 const dot = require("dotenv").config();
 const config = {
   dev: {
-    username: "root",
-    password: process.env.DB_PASSWORD,
+    username: "cham",
+    password: "cham",
     database: "cham",
     host: "127.0.0.1",
     dialect: "mysql",
