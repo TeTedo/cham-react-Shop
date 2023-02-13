@@ -11,7 +11,7 @@ router.post("/signUp", async (req, res) => {
       ...req.body,
       user_pw: encrypted,
       profile_img: path.join("/imgs", `defaultImage${randomProfile}.jpg`),
-      type: "C",
+      type: "A",
       point: 0,
     }).then(() => {
       res.send("회원가입 끝");
