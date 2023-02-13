@@ -12,7 +12,7 @@ const signup = ({
   return async (dispatch, getState) => {
     const data = await axios({
       method: "post",
-      url: "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/signUp",
+      url: "http://127.0.0.1:8000/signUp",
       data: {
         user_id,
 
@@ -31,7 +31,7 @@ const login = ({ user_id, user_pw }) => {
   return async (dispatch, getState) => {
     const userData = await axios({
       method: "post",
-      url: "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/login",
+      url: "http://127.0.0.1:8000/login",
       data: { user_id, user_pw },
     });
     if (userData.data.user_id) {
@@ -51,7 +51,7 @@ const loginCheck = () => {
     if (window.localStorage.getItem("login") === "true") {
       const userData = await axios({
         method: "post",
-        url: "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/loginCheck",
+        url: "http://127.0.0.1:8000/loginCheck",
         data: {
           access_token: getCookie("access"),
           refresh_token: getCookie("refresh"),
@@ -78,13 +78,13 @@ const modifyInfo = (data) => {
     const { formData, config, user_id, user_pw } = data;
     const userData = await axios({
       method: "post",
-      url: "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/login",
+      url: "http://127.0.0.1:8000/login",
       data: { user_id, user_pw },
     });
 
     if (userData.data.user_id) {
       const modify = await axios.post(
-        "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/profile/modify",
+        "http://127.0.0.1:8000/profile/modify",
         formData,
         config
       );
@@ -104,13 +104,13 @@ const applySeller = (data) => {
     const { user_id, user_pw } = data;
     const userData = await axios({
       method: "post",
-      url: "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/login",
+      url: "http://127.0.0.1:8000/login",
       data: { user_id, user_pw },
     });
 
     if (userData.data.user_id) {
       const apply = await axios.post(
-        "http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:8000/profile/applySeller",
+        "http://127.0.0.1:8000/profile/applySeller",
         { user_id }
       );
       if (apply.data) {

@@ -52,7 +52,7 @@ FrontEnd,BackEnd 폴더에서 npm install
 
 #### `npm start`
 
-FrontEnd,BackEnd 폴더에서 npm start하면 http://ec2-15-165-160-2.ap-northeast-2.compute.amazonaws.com:3000에서 실행된다.
+FrontEnd,BackEnd 폴더에서 npm start하면 http://127.0.0.1:3000에서 실행된다.
 
 ---
 
