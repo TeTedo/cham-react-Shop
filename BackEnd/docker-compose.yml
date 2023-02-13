@@ -7,4 +7,4 @@ services:
     env_file:
       - ./mysql.env
     ports:
-      - 3307:3306
+      - 3306:3306

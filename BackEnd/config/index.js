@@ -14,7 +14,6 @@ const config = {
     define: {
       timestamps: true,
     },
-    port: 3307,
   },
 };
 
