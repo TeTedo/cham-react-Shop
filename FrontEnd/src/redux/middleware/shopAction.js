@@ -15,7 +15,7 @@ const uploadSlideToServer = (props) => {
   return async (dispatch, getState) => {
     const { formData, config } = props;
     const slideData = await axios.post(
-      `${process.env.REACT_APP_URL}/`,
+      `${process.env.REACT_APP_URL}/shop/uploadsSlide`,
       formData,
       config
     );
