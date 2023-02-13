@@ -14,7 +14,7 @@ router.post("/profile/modify", imgUpload.single("file"), async (req, res) => {
         mobile_number,
         address,
         email,
-        profile_img: "/imgs" + req.file.filename,
+        profile_img: "http://localhost:8000/public/" + req.file.filename,
       },
       { where: { user_id } }
     );

@@ -42,6 +42,8 @@ const user = require("../routers/user");
 const error = require("../routers/error");
 app.use(singUp, login, shop, modifyProfile, user, error);
 
+app.use(express.static("public"));
+
 app.listen(8000, () => {
   console.log("server start");
 });

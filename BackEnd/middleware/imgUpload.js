@@ -6,7 +6,7 @@ const imgUpload = multer({
     //파일이 저장될 경로
     destination(req, file, callback) {
       // callback 매개변수 : error | null , 경로
-      callback(null, path.join(__dirname, "../..", "/FrontEnd/public/imgs"));
+      callback(null, path.join(__dirname, "../public"));
     },
     filename(req, file, callback) {
       // 파일 확장자
