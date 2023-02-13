@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   mariadb:
-    container_name: mysql
+    container_name: mysql-cham
     image: "mysql"
     restart: always
     env_file:
